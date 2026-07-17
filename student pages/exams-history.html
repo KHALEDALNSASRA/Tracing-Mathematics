@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examify Exams History</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="./student-dashboard.css">
+<link rel="stylesheet" href="./exams-history.css">
+
+</head>
+<body>
+
+<input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+
+<div class="app-shell">
+
+  <!-- mobile scrim, closes sidebar on tap -->
+  <label for="sidebar-toggle" class="sidebar-scrim" aria-hidden="true"></label>
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img class="sidebar-logo-img" src="./assets/Examify.png" alt="Examify logo">
+      <span class="sidebar-logo-text">Examify</span>
+      <label for="sidebar-toggle" class="sidebar-collapse-btn" role="button" aria-label="Toggle sidebar">
+        <i class="fas fa-chevron-left"></i>
+      </label>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="student-dashboard.html" class="sidebar-item">
+        <i class="fas fa-house"></i>
+        <span class="sidebar-label">Home</span>
+      </a>
+      <a href="exams-history.html" class="sidebar-item sidebar-item--active">
+        <i class="fas fa-pen-to-square"></i>
+        <span class="sidebar-label">Exams History</span>
+      </a>
+      <a href="profile.html" class="sidebar-item">
+        <i class="fa-regular fa-circle-user"></i>
+        <span class="sidebar-label">Profile</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="sidebar-item">
+        <i class="fas fa-right-from-bracket"></i>
+        <span class="sidebar-label">Sign out</span>
+      </a>
+    </div>
+  </aside>
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <header class="topbar">
+      <label for="sidebar-toggle" class="topbar-burger" role="button" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </label>
+      <span class="topbar-title">Home</span>
+    </header>
+
+    <div class="content">
+
+      <section class="history-panel">
+        <h2 class="history-panel-title">Exams history</h2>
+
+        <div class="history-grid">
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--success">Passed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Midterm</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">25/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <a href="review-answers.html">
+            <button class="btn btn--primary">Review my answers</button></a>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--success">Passed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Exercises</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">25/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--danger">Failed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Exercises</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">14/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--success">Passed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Exercises</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">25/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--danger">Failed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Exercises</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">14/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--success">Passed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Midterm</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">25/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--danger">Failed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Exercises</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">14/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card-top">
+              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+              <span class="badge badge--success">Passed</span>
+            </div>
+            <div class="history-card-body">
+              <span class="history-card-title">Calculus II</span>
+              <span class="history-card-type">Exercises</span>
+            </div>
+            <div class="history-card-meta">
+              <span class="history-card-score">25/30</span>
+              <span>• 30 Q</span>
+            </div>
+            <button class="btn btn--primary">Review my answers</button>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
