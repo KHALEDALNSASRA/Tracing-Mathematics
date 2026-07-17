@@ -9,6 +9,7 @@ const teacherId = db.createTeacher(
     "admin",
     "admin123"
 );
+db.setSession(0,"teacher")
 
 const studentId = db.createStudent(
     "Sara Ali",
@@ -46,3 +47,5 @@ const exam = db.getExam(0);
 exam.questions.forEach(qid => {
     console.log(db.getQuestion(qid))
 });
+
+db.setSession(0,"teacher")

@@ -40,6 +40,7 @@
                 username: "sara.ali",
                 password: "12345",
                 results : [0,1,2] // results keys
+                avgGrade : 90
           }
       }
 
@@ -211,7 +212,8 @@ export function createStudent(fullName, nationalId, phone, username, password){
     phone,
     username,
     password,
-    results :[]
+    results :[],
+    avgGrade: 0
   }
 
   localStorage.setItem("Users",JSON.stringify(data))
@@ -253,10 +255,18 @@ export function getStudentByUsername(username) {
 
 export function addResultToStudent(studentId, resultId) {
     const data = JSON.parse(localStorage.getItem("Users"));
-    data.Student[studentId].results.push(resultId);
+    const result = getResult(resultId);
+    const student = data.Student[studentId];
+
+    const addedGrade = result.percentage;          // performance, not max score
+    const oldAvg = student.avgGrade || 0;           // 0 if undefined/first result
+    const newAvg = (oldAvg * student.results.length + addedGrade) / (student.results.length + 1);
+
+    student.results.push(resultId);
+    student.avgGrade = newAvg;
+
     localStorage.setItem("Users", JSON.stringify(data));
 }
-
 
 
 export function createExam(title, dateTime, status, questionIds) {
@@ -395,7 +405,7 @@ export function createResult(studentId, examId, ans, qId) {
             qustionID : qId[i],
             pointsEarned : points
         }
-        const percentage =
+         percentage =
         totalPoints === 0 ? 0 : (earnedPoints / totalPoints) * 100;
 
     const passed = percentage >= 50;
