@@ -1,0 +1,239 @@
+/* ============================================================
+   Review Answers Page — uses design tokens from style.css
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.review-page {
+  min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+
+.review-header {
+  height: var(--topbar-h);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+}
+
+.review-header__logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.review-header__logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+/* ================= CONTENT ================= */
+
+.review-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+.review-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+/* ================= QUESTION CARD ================= */
+
+.question-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+}
+
+.question-card + .question-card,
+.question-card + .score-bar {
+  margin-top: 24px;
+}
+
+.question-card__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.question-card__prompt {
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.question-card__working {
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  padding: 14px 20px;
+  text-align: center;
+  color: #475569;
+  font-size: 14.5px;
+  margin-bottom: 18px;
+}
+
+/* ================= OPTIONS ================= */
+
+.option-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--card);
+  padding: 14px 18px;
+  transition: box-shadow var(--fast) var(--ease);
+}
+
+.option--correct {
+  background: var(--success-tint);
+  border-color: var(--success);
+}
+
+.option--incorrect {
+  background: var(--danger-tint);
+  border-color: var(--danger);
+}
+
+.option__badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.option__badge--correct {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+
+.option__badge--incorrect {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+.option__text {
+  color: #475569;
+  font-size: 14.5px;
+}
+
+/* ================= SCORE BAR ================= */
+
+.score-bar {
+  margin-top: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.score-bar__label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.score-bar__value {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  font-size: 14.5px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn--primary {
+  background: var(--grad-primary);
+  color: #fff;
+}
+
+.btn--primary:hover { box-shadow: var(--shadow-md); }
+
+.btn--back {
+  margin-top: 28px;
+  width: auto;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 640px) {
+  .review-header { padding: 0 20px; }
+  .review-content { padding: 28px 16px 48px; }
+  .review-title { font-size: 26px; }
+  .question-card { padding: 20px; }
+  .score-bar { padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .btn--back { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

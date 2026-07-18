@@ -1,0 +1,273 @@
+/* ============================================================
+   Exam Wizard Page — single page, CSS-only stepper (no JS)
+   Uses design tokens from style.css
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+
+.exam-page {
+  min-height: 100vh;
+}
+
+/* ================= CSS-ONLY STEPPER =================
+   Each question is a full "page" section. Only one is shown
+   at a time: the one matching the URL's #fragment (:target).
+   With no fragment in the URL, the first step is shown by
+   default via the :has() fallback rule below. Previous/Next
+   are plain anchor links to #qN — no JavaScript involved.   */
+
+.wizard-step {
+  display: none;
+}
+
+.wizard-step:target {
+  display: block;
+}
+
+.wizard:not(:has(.wizard-step:target)) .wizard-step:first-of-type {
+  display: block;
+}
+
+/* ================= HEADER ================= */
+
+.exam-header {
+  height: var(--topbar-h);
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 40px;
+}
+
+.exam-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exam-header__logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.exam-header__logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.exam-header__counter {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: #64748B;
+}
+
+.exam-header__counter strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ================= CONTENT ================= */
+
+.exam-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+/* ================= QUESTION CARD ================= */
+
+.exam-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+}
+
+.exam-card__prompt {
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.exam-card__working {
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  padding: 16px 20px;
+  text-align: center;
+  color: #475569;
+  font-size: 14.5px;
+  margin-bottom: 24px;
+}
+
+/* ================= ANSWER OPTIONS ================= */
+
+.answer-list {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--card);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.answer-option:hover {
+  border-color: var(--primary);
+}
+
+.answer-option:has(.answer-option__input:checked) {
+  background: var(--primary-tint);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.answer-option:has(.answer-option__input:focus-visible) {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.answer-option__badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.answer-option:has(.answer-option__input:checked) .answer-option__badge {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.answer-option__text {
+  color: #475569;
+  font-size: 15px;
+}
+
+/* ================= WIZARD NAV ================= */
+
+.exam-nav {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn--previous {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn--previous:hover { background: var(--bg); }
+
+.btn--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--next {
+  background: var(--grad-primary);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--next:hover { box-shadow: var(--shadow-md); }
+
+.btn--submit {
+  background: linear-gradient(135deg, #F87171 0%, var(--danger) 100%);
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15), 0 10px 24px rgba(239, 68, 68, 0.4);
+}
+
+.btn--submit:hover {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2), 0 12px 28px rgba(239, 68, 68, 0.5);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 640px) {
+  .exam-header { padding: 0 20px; }
+  .exam-header__counter { font-size: 15px; }
+  .exam-content { padding: 32px 16px 48px; }
+  .exam-card { padding: 22px; }
+  .answer-option { padding: 14px 16px; }
+  .btn { padding: 14px 18px; font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

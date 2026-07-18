@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Student Results</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url("../style/style.css");
+        @import url("../teacher_dashbors/teacher_dashbors.css");
+
+
+        .results-title {
+            margin: 0;
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        .results-subtitle {
+            margin: 7px 0 36px;
+            color: #64748b;
+            font-size: 10px;
+        }
+
+        .student-results-panel {
+            overflow: hidden;
+            background: var(--card);
+            border-bottom: 1px solid #9ca3af;
+            border-radius: 6px 6px 0 0;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .results-toolbar {
+            min-height: 47px;
+            display: grid;
+            grid-template-columns: minmax(180px, 1fr) 190px;
+            align-items: center;
+            gap: 78px;
+            padding: 7px 12px;
+            background: #2648bd;
+        }
+
+        .search-field {
+            min-width: 0;
+            height: 29px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 0 10px;
+            background: var(--card);
+            border-radius: 5px;
+            color: #94a3b8;
+        }
+
+        .search-icon {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .search-field input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 10px;
+        }
+
+        .search-field input::placeholder {
+            color: #94a3b8;
+        }
+
+        .filter-select {
+            width: 100%;
+            height: 29px;
+            padding: 0 9px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background: var(--card);
+            color: #64748b;
+            font-family: var(--font-body);
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .student-table-scroll {
+            overflow-x: auto;
+        }
+
+        .student-results-table {
+            width: 100%;
+            min-width: 680px;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .student-results-table th {
+            height: 40px;
+            padding: 0 12px;
+            color: #64748b;
+            font-size: 10px;
+            font-weight: 400;
+            text-align: left;
+        }
+
+        .student-results-table td {
+            height: 62px;
+            padding: 0 12px;
+            color: var(--text);
+            font-size: 11px;
+            vertical-align: middle;
+        }
+
+        .student-results-table th:first-child,
+        .student-results-table td:first-child {
+            padding-left: 18px;
+            width: 30%;
+        }
+
+        .student-results-table th:nth-child(2) {
+            width: 24%;
+        }
+
+        .student-results-table th:nth-child(3) {
+            width: 21%;
+        }
+
+        .student-results-table th:nth-child(4) {
+            width: 16%;
+        }
+
+        .student-results-table th:last-child,
+        .student-results-table td:last-child {
+            width: 9%;
+            padding-right: 18px;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .results-toolbar {
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .results-title {
+                font-size: 27px;
+            }
+
+            .results-subtitle {
+                margin-bottom: 24px;
+            }
+
+            .results-toolbar {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .student-table-scroll {
+                overflow: visible;
+            }
+
+            .student-results-table,
+            .student-results-table tbody,
+            .student-results-table tr,
+            .student-results-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .student-results-table {
+                min-width: 0;
+            }
+
+            .student-results-table thead {
+                display: none;
+            }
+
+            .student-results-table tbody {
+                display: block;
+                padding: 12px;
+            }
+
+            .student-results-table tr {
+                margin-bottom: 12px;
+                overflow: hidden;
+                border: 1px solid var(--border);
+                border-radius: var(--r-sm);
+                background: var(--card);
+                box-shadow: var(--shadow-xs);
+            }
+
+            .student-results-table td {
+                display: grid;
+                grid-template-columns: 100px minmax(0, 1fr);
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                height: auto;
+                min-height: 44px;
+                padding: 9px 12px;
+                border-top: 1px solid var(--border);
+                text-align: left;
+            }
+
+            .student-results-table td:first-child {
+                width: 100%;
+                padding-left: 12px;
+                border-top: none;
+            }
+
+            .student-results-table td:last-child {
+                width: 100%;
+                padding-right: 12px;
+                text-align: left;
+            }
+
+            .student-results-table td::before {
+                content: attr(data-label);
+                color: #64748b;
+                font-size: 10px;
+                font-weight: 600;
+            }
+        }
+    </style>
+
+    <script type="module" src="student_results.js" defer></script>
+</head>
+
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo-wrap">
+                    <img alt="Examify" class="brand-logo"
+                        src="../pic/logo.png">
+                    </div>
+            </div>
+            <nav class="side-nav">
+                <a class="nav-link" href="#">
+                    <svg aria-hidden="true" class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewbox="0 0 24 24">
+                        <rect height="7" rx="1" width="7" x="3" y="3"></rect>
+                        <rect height="7" rx="1" width="7" x="14" y="3"></rect>
+                        <rect height="7" rx="1" width="7" x="3" y="14"></rect>
+                        <rect height="7" rx="1" width="7" x="14" y="14"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a class="nav-link" href="#">
+                    <svg aria-hidden="true" class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewbox="0 0 24 24">
+                        <path d="M4 20h16"></path>
+                        <path d="M6 16l8-8 4 4-8 8H6v-4z"></path>
+                    </svg>
+                    <span>Exam Builder</span>
+                </a>
+                <a class="nav-link" href="#">
+                    <svg aria-hidden="true" class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewbox="0 0 24 24">
+                        <path d="M12 5v14M5 12h14"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                    </svg>
+                    <span>Add Student</span>
+                </a>
+                <a class="nav-link active" href="#">
+                    <svg aria-hidden="true" class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewbox="0 0 24 24">
+                        <path d="M4 19h16"></path>
+                        <path d="M6 15l4-4 3 3 5-7"></path>
+                    </svg>
+                    <span>Student Results</span>
+                </a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="nav-link" href="#">
+                    <svg aria-hidden="true" class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewbox="0 0 24 24">
+                        <circle cx="12" cy="8" r="3"></circle>
+                        <path d="M5 20c.7-4 3-6 7-6s6.3 2 7 6"></path>
+                    </svg>
+                    <span class="profName"></span>
+                </a>
+                <a class="nav-link" href="#">
+                    <svg aria-hidden="true" class="nav-icon" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewbox="0 0 24 24">
+                        <path d="M10 17l5-5-5-5"></path>
+                        <path d="M15 12H3"></path>
+                        <path d="M14 4h6v16h-6"></path>
+                    </svg>
+                    <span>Sign out</span>
+                </a>
+            </div>
+        </aside>
+        <main class="main-area">
+            <header class="topbar">
+                <div class="topbar-title">Students</div>
+                <div class="topbar-actions">
+                    <button class="btn" type="button">Sign Out</button>
+                    <button class="btn btn-primary" type="button">New Exam</button>
+                </div>
+            </header>
+            <section class="content">
+                <h1 class="results-title">Student Results</h1>
+                <p class="results-subtitle">Track performance across all enrolled students.</p>
+                <section aria-label="Student results" class="student-results-panel">
+                    <div class="results-toolbar">
+                        <label class="search-field">
+                            <svg aria-hidden="true" class="search-icon" fill="none" stroke="currentColor"
+                                stroke-width="1.8" viewbox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <path d="m16 16 4 4"></path>
+                            </svg>
+                            <input aria-label="Search students" placeholder="Search" type="search" id="searchBar" />
+                        </label>
+                        <select aria-label="Filter student results" class="filter-select" id="filter">
+                            <option>Filter...</option>
+                            <option>Highest score</option>
+                            <option>Lowest score</option>
+                            <option>Most exams</option>
+                        </select>
+                    </div>
+                    <div class="student-table-scroll">
+                        <table class="student-results-table">
+                            <colgroup>
+                                <col class="student-col" />
+                                <col class="email-col" />
+                                <col class="submit-col" />
+                                <col class="score-col" />
+                                <col class="done-col" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Last Submit</th>
+                                    <th>Avg Score</th>
+                                    <th>Exams<br />Done</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Student">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
