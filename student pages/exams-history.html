@@ -42,7 +42,7 @@
     </nav>
 
     <div class="sidebar-footer">
-      <a href="#" class="sidebar-item" id="logout-btn">
+      <a href="../Login/login.html" class="sidebar-item" id="logout-btn">
         <i class="fas fa-right-from-bracket"></i>
         <span class="sidebar-label">Sign out</span>
       </a>
@@ -125,6 +125,11 @@
             });
         });
     });
+    const logoutBtn= document.getElementById("logout-btn");
+    logoutBtn.addEventListener("click", (e) => {
+        db.logout();
+    });
+    
 </script>
 </body>
 </html>
