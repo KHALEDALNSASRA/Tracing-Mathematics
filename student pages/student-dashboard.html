@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Examify — Student Dashboard</title>
+<title>Student Dashboard</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="./student-dashboard.css">
-
 </head>
 <body>
 
@@ -15,10 +14,8 @@
 
 <div class="app-shell">
 
-  <!-- mobile scrim, closes sidebar on tap -->
   <label for="sidebar-toggle" class="sidebar-scrim" aria-hidden="true"></label>
 
-  <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar">
     <div class="sidebar-header">
       <img class="sidebar-logo-img" src="./assets/Examify.png" alt="Examify logo">
@@ -44,14 +41,13 @@
     </nav>
 
     <div class="sidebar-footer">
-      <a href="#" class="sidebar-item">
+      <a href="#" class="sidebar-item" id="logout-btn">
         <i class="fas fa-right-from-bracket"></i>
         <span class="sidebar-label">Sign out</span>
       </a>
     </div>
   </aside>
 
-  <!-- ================= MAIN ================= -->
   <div class="main">
     <header class="topbar">
       <label for="sidebar-toggle" class="topbar-burger" role="button" aria-label="Open menu">
@@ -64,26 +60,28 @@
 
       <div class="page-header">
         <div>
-          <h1 class="page-header-title">Welcome back Razan</h1>
+          <h1 class="page-header-title">Welcome back <span id="student-name">...</span></h1>
           <p class="page-header-subtitle">Ready for your next exam ?</p>
-        </div><a href="exams-history.html">
-        <button class="btn btn--accent">My Exams</button></a>
+        </div>
+        <a href="exams-history.html">
+          <button class="btn btn--accent">My Exams</button>
+        </a>
       </div>
 
       <section class="stat-grid">
         <article class="stat-card">
           <div class="stat-card-icon stat-card-icon--accent"><i class="fas fa-star"></i></div>
-          <div class="stat-card-value">98%</div>
+          <div class="stat-card-value" id="stat-avg">0%</div>
           <div class="stat-card-label">Average score</div>
         </article>
         <article class="stat-card">
           <div class="stat-card-icon stat-card-icon--success"><i class="fas fa-circle-check"></i></div>
-          <div class="stat-card-value">5</div>
+          <div class="stat-card-value" id="stat-completed">0</div>
           <div class="stat-card-label">Exams Completed</div>
         </article>
         <article class="stat-card">
           <div class="stat-card-icon stat-card-icon--primary"><i class="fas fa-circle-question"></i></div>
-          <div class="stat-card-value">2</div>
+          <div class="stat-card-value" id="stat-available">0</div>
           <div class="stat-card-label">Available exams</div>
         </article>
       </section>
@@ -94,90 +92,14 @@
           <div class="panel-header">
             <h2 class="panel-title">Available Exams</h2>
           </div>
-          <div class="exam-grid">
-
-            <article class="exam-card">
-              <div class="exam-card-top">
-                <div class="exam-card-icon"><i class="fas fa-pen"></i></div>
-                <span class="badge badge--success">Active</span>
-              </div>
-              <div class="exam-card-body">
-                <span class="exam-card-title">Calculus II</span>
-                <span class="exam-card-type">Midterm</span>
-              </div>
-              <div class="exam-card-meta">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>Dr.Ibraheem</span>
-                <span class="exam-card-meta-dot">• 30 Q</span>
-              </div>
-              <button class="btn btn--primary">Start Exam</button>
-            </article>
-
-            <article class="exam-card">
-              <div class="exam-card-top">
-                <div class="exam-card-icon"><i class="fas fa-pen"></i></div>
-                <span class="badge badge--success">Active</span>
-              </div>
-              <div class="exam-card-body">
-                <span class="exam-card-title">Calculus II</span>
-                <span class="exam-card-type">Short exam</span>
-              </div>
-              <div class="exam-card-meta">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>Dr.Ibraheem</span>
-                <span class="exam-card-meta-dot">• 20 Q</span>
-              </div>
-              <a href="student-exam.html">
-              <button class="btn btn--primary">Start Exam</button></a>
-            </article>
-
-            <article class="exam-card">
-              <div class="exam-card-top">
-                <div class="exam-card-icon"><i class="fas fa-pen"></i></div>
-                <span class="badge badge--success">Active</span>
-              </div>
-              <div class="exam-card-body">
-                <span class="exam-card-title">Calculus II</span>
-                <span class="exam-card-type">Exercises</span>
-              </div>
-              <div class="exam-card-meta">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>Dr.Ibraheem</span>
-                <span class="exam-card-meta-dot">• 10 Q</span>
-              </div>
-              <button class="btn btn--primary">Start Exam</button>
-            </article>
-
-          </div>
+          <div class="exam-grid" id="exams-container"></div>
         </section>
 
         <aside>
-          <section class="panel results-panel">
+          <section class="panel results-panel" id="results-container">
             <div class="panel-header">
               <h2 class="panel-title">Latest Results</h2>
-              <a href="#" class="panel-link">View all</a>
-            </div>
-
-            <div class="result-item">
-              <div class="result-item-top">
-                <span class="result-item-title">Calculus II</span>
-                <span class="badge badge--success">Passed</span>
-              </div>
-              <div class="result-item-bottom">
-                <span>• 20 Q</span>
-                <span class="result-item-score">24/30</span>
-              </div>
-            </div>
-
-            <div class="result-item">
-              <div class="result-item-top">
-                <span class="result-item-title">Calculus II</span>
-                <span class="badge badge--danger">Failed</span>
-              </div>
-              <div class="result-item-bottom">
-                <span>• 20 Q</span>
-                <span class="result-item-score">5/15</span>
-              </div>
+              <a href="exams-history.html" class="panel-link">View all</a>
             </div>
           </section>
 
@@ -185,7 +107,7 @@
             <div class="panel-header">
               <h2 class="panel-title">Quote of the Day</h2>
             </div>
-            <p class="quote-panel-text">"There are no secrets to success. It is the result of preparation, hard work, and learning from failure."</p>
+            <p class="quote-panel-text" id="quote-text">"There are no secrets to success. It is the result of preparation, hard work, and learning from failure."</p>
           </section>
         </aside>
 
@@ -193,7 +115,135 @@
 
     </div>
   </div>
+  
 
+<script type="module">
+    import * as db from "../Database.js";
+    document.addEventListener("DOMContentLoaded", () => {
+        const session = db.getCurrentSession();
+
+
+        const studentId = session.userId;
+        const currentStudent = db.getStudent(studentId); 
+        
+        document.getElementById("student-name").textContent = currentStudent.fullName;
+        document.getElementById("stat-avg").textContent = `${currentStudent.avgGrade || 0}%`;
+        
+
+        const studentResults = db.getResultsByStudent(studentId); 
+        const allActiveExams = db.getActiveExams(); 
+        
+        const availableExamsList = [];
+        const examsData = JSON.parse(localStorage.getItem("Exams")) || {};
+        
+        Object.entries(examsData).forEach(([examId, exam]) => {
+            if (exam.status === "Active") {
+                if (!db.hasStudentTakenExam(studentId, Number(examId))) {
+                    exam.realId = Number(examId);
+                    availableExamsList.push(exam);
+                }
+            }
+        });
+
+        document.getElementById("stat-completed").textContent = studentResults.length;
+        document.getElementById("stat-available").textContent = availableExamsList.length;
+
+        showAvailableExams(availableExamsList, studentId);
+        showLatestResults(studentResults);
+
+        fetchRandomQuote();
+    });
+
+    function showAvailableExams(examsToDisplay, studentId) {
+        const container = document.getElementById("exams-container");
+        container.innerHTML = ""; 
+
+        if (examsToDisplay.length === 0) {
+            container.innerHTML = "<p>no available exams for you right now</p>";
+            return;
+        }
+
+        examsToDisplay.forEach((exam) => {
+            const card = document.createElement("article");
+            card.className = "exam-card";
+            card.innerHTML = `
+                <div class="exam-card-top">
+                    <div class="exam-card-icon"><i class="fas fa-pen"></i></div>
+                    <span class="badge badge--success">Active</span>
+                </div>
+                <div class="exam-card-body">
+                    <span class="exam-card-title">${exam.title}</span>
+                    <span class="exam-card-type">Exam</span>
+                </div>
+                <div class="exam-card-meta">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>Teacher</span>
+                    <span class="exam-card-meta-dot">• ${exam.questions ? exam.questions.length : 0} Q</span>
+                </div>
+                <button class="btn btn--primary start-exam-btn" data-id="${exam.realId}">Start Exam</button>
+            `;
+            container.appendChild(card);
+        });
+
+        container.querySelectorAll(".start-exam-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const examId = e.target.getAttribute("data-id");
+                window.location.href = `student-exam.html?examId=${examId}`;
+            });
+        });
+    }
+
+    function showLatestResults(results) {
+        const container = document.getElementById("results-container");
+        const headerHTML = container.querySelector(".panel-header").outerHTML;
+        container.innerHTML = headerHTML;
+
+        if (results.length === 0) {
+            container.innerHTML += "<p class='quote-panel-text' style='padding: 10px 0;'>No exams taken yet.</p>";
+            return;
+        }
+
+       let count = 0;
+
+       for (let i = results.length - 1; i >= 0; i--) {
+          if (count >= 3) break; 
+          count++;
+
+          const res = results[i]; 
+          const examData = db.getExam(res.examId);
+          const isPassed = Number(res.earnedPoints) >= ((Number(res.totalPoints) / 2));
+          
+          const statusClass = isPassed ? "badge--success" : "badge--danger";
+          const statusText = isPassed ? "Passed" : "Failed";
+
+          const resultItem = document.createElement("div");
+          resultItem.className = "result-item";
+          resultItem.innerHTML = `
+              <div class="result-item-top">
+                  <span class="result-item-title">${examData ? examData.title : "Exam"}</span>
+                  <span class="badge ${statusClass}">${statusText}</span>
+              </div>
+              <div class="result-item-bottom">
+                  <span>• ${res.percentage}%</span>
+                  <span class="result-item-score">${res.earnedPoints}/${res.totalPoints}</span>
+              </div>
+          `;
+          container.appendChild(resultItem);
+      }
+    }
+    function fetchRandomQuote() {
+        fetch('https://dummyjson.com/quotes/random')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("quote-text").textContent = `"${data.quote}"`;
+            })
+            .catch(err => {
+                console.error("Failed to fetch quote:", err);
+                document.getElementById("quote-text").textContent = `"There are no secrets to success. It is the result of preparation, hard work, and learning from failure."`;
+            });
+    }
+    
+  </script>
 </div>
 
 </body>
