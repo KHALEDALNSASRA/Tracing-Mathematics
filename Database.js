@@ -387,29 +387,45 @@ export function createResult(studentId, examId, ans, qId) {
     const answers ={}
     let percentage;
     let passed;
-    for(let i = 0; i < qId.length; i++){
-        const question = getQuestion(qId[i])
-        const isCorrect = Number(question.correctAns) === (ans[i]);
-        let points;
-        if(isCorrect)
-            {
-                points = question.points
-                earnedPoints += points
-            }
-        else
-            points = 0
- 
-        answers[i]={
-            studentAns : ans[i],
-            isCorrect,
-            qustionID : qId[i],
-            pointsEarned : points
-        }
-         percentage =
-        totalPoints === 0 ? 0 : (earnedPoints / totalPoints) * 100;
+    for (let i = 0; i < qId.length; i++) {
 
-    const passed = percentage >= 50;
+    const question = getQuestion(qId[i]);
+
+    let isCorrect;
+
+    if (question.type === "ShortAnswer") {
+
+        isCorrect =
+            String(question.correctAns).trim().toLowerCase() ===
+            String(ans[i]).trim().toLowerCase();
+
+    } else {
+
+        isCorrect = Number(question.correctAns) === ans[i];
+
     }
+
+    let points = 0;
+
+    if (isCorrect) {
+        points = question.points;
+        earnedPoints += points;
+    }
+
+    answers[i] = {
+        studentAns: ans[i],
+        isCorrect,
+        qustionID: qId[i],
+        pointsEarned: points
+    };
+}
+
+// احسب النسبة بعد انتهاء الحلقة
+percentage =
+    totalPoints === 0 ? 0 : (earnedPoints / totalPoints) * 100;
+
+// احسب النجاح بعد انتهاء الحلقة
+passed = percentage >= 50;
 
 
     data[newKey] = {

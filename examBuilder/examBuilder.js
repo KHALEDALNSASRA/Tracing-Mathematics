@@ -1,8 +1,8 @@
 import * as db from "../Database.js";
-import * as seed from "../seedData.js"
+
 import * as questions from "./htmlComponents.js"
 
-seed.seedData()
+
 const name = document.querySelectorAll(".profName")
 
 const teacherid = db.getCurrentSession().userId

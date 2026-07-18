@@ -8,103 +8,38 @@
 <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="./student-dashboard.css">
 <link rel="stylesheet" href="./profile.css">
+<script type="module" src="profile.js" defer></script>
 
 </head>
 <body>
 
-<input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+<div class="profile-name-wrap">
+    <span class="profile-name-badge" id="studentName"></span>
+</div>
 
-<div class="app-shell">
+<hr class="profile-divider">
 
-  <!-- mobile scrim, closes sidebar on tap -->
-  <label for="sidebar-toggle" class="sidebar-scrim" aria-hidden="true"></label>
+<div class="profile-info-grid">
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <img class="sidebar-logo-img" src="./assets/Examify.png" alt="Examify logo">
-      <span class="sidebar-logo-text">Examify</span>
-      <label for="sidebar-toggle" class="sidebar-collapse-btn" role="button" aria-label="Toggle sidebar">
-        <i class="fas fa-chevron-left"></i>
-      </label>
+    <div class="profile-info-item">
+        <div class="profile-info-label">Student ID</div>
+        <div class="profile-info-value" id="studentId"></div>
     </div>
 
-    <nav class="sidebar-nav">
-      <a href="student-dashboard.html" class="sidebar-item">
-        <i class="fas fa-house"></i>
-        <span class="sidebar-label">Home</span>
-      </a>
-      <a href="exams-history.html" class="sidebar-item">
-        <i class="fas fa-pen-to-square"></i>
-        <span class="sidebar-label">Exams History</span>
-      </a>
-      <a href="profile.html" class="sidebar-item sidebar-item--active">
-        <i class="fa-regular fa-circle-user"></i>
-        <span class="sidebar-label">Profile</span>
-      </a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <a href="#" class="sidebar-item">
-        <i class="fas fa-right-from-bracket"></i>
-        <span class="sidebar-label">Sign out</span>
-      </a>
+    <div class="profile-info-item">
+        <div class="profile-info-label">Email</div>
+        <div class="profile-info-value" id="studentEmail"></div>
     </div>
-  </aside>
 
-  <!-- ================= MAIN ================= -->
-  <div class="main">
-    <header class="topbar">
-      <label for="sidebar-toggle" class="topbar-burger" role="button" aria-label="Open menu">
-        <i class="fas fa-bars"></i>
-      </label>
-      <span class="topbar-title">Profile</span>
-    </header>
-
-    <div class="content">
-
-      <section class="profile-card">
-        <div class="profile-card-cover"></div>
-
-        <div class="profile-card-body">
-          
-
-          <div class="profile-avatar">
-            <i class="fa-regular fa-circle-user"></i>
-          </div>
-
-          <div class="profile-name-wrap">
-            <span class="profile-name-badge">Razan alward</span>
-          </div>
-
-          <hr class="profile-divider">
-
-          <div class="profile-info-grid">
-            <div class="profile-info-item">
-              <div class="profile-info-label">Student ID</div>
-              <div class="profile-info-value">02155555448688612</div>
-            </div>
-
-            <div class="profile-info-item">
-              <div class="profile-info-label">Email</div>
-              <div class="profile-info-value">Razan.Alward@gmail.com</div>
-            </div>
-
-            <div class="profile-info-item">
-              <div class="profile-info-label">Average</div>
-              <div class="profile-info-value">98%</div>
-            </div>
-
-            <div class="profile-info-item">
-              <div class="profile-info-label">Your teacher</div>
-              <div class="profile-info-value">Ramzi.Alwa@gmail.com</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <div class="profile-info-item">
+        <div class="profile-info-label">Average</div>
+        <div class="profile-info-value" id="studentAverage"></div>
     </div>
-  </div>
+
+    <div class="profile-info-item">
+        <div class="profile-info-label">Your teacher</div>
+        <div class="profile-info-value" id="teacherName"></div>
+    </div>
 
 </div>
 

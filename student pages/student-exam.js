@@ -42,33 +42,71 @@ const renderHelper = (question) => {
     }
 };
  
-const renderOptions = (question, selectedOption) => {
+const renderOptions = (question, selectedAnswer) => {
+
     answersContainerEl.innerHTML = "";
+
+  
+    if (question.type === "ShortAnswer") {
+
+        const input = document.createElement("textarea");
+
+        input.className = "short-answer";
+        input.placeholder = "Write your answer here...";
+
+        input.value = selectedAnswer ?? "";
+
+        input.addEventListener("input", () => {
+            studentAnswers[currentIndex] = input.value;
+        });
+
+        answersContainerEl.appendChild(input);
+
+        return;
+    }
+
  
     Object.entries(question.option).forEach(([optionIndex, optionText]) => {
+
         const index = Number(optionIndex);
-        const isSelected = selectedOption === index;
- 
+        const isSelected = selectedAnswer === index;
+
         const optionEl = document.createElement("div");
-        optionEl.className = `answer-option${isSelected ? " is-selected" : ""}`;
+
+        optionEl.className =
+            `answer-option${isSelected ? " is-selected" : ""}`;
+
         optionEl.setAttribute("role", "button");
         optionEl.setAttribute("tabindex", "0");
- 
+
         optionEl.innerHTML = `
-            <span class="answer-option__letter">${optionLetter(index)}</span>
-            <span class="answer-option__text">${optionText}</span>
+            <span class="answer-option__letter">
+                ${optionLetter(index)}
+            </span>
+
+            <span class="answer-option__text">
+                ${optionText}
+            </span>
         `;
- 
+
         optionEl.addEventListener("click", () => selectAnswer(index));
+
         optionEl.addEventListener("keydown", (event) => {
+
             if (event.key === "Enter" || event.key === " ") {
+
                 event.preventDefault();
+
                 selectAnswer(index);
+
             }
+
         });
- 
+
         answersContainerEl.appendChild(optionEl);
+
     });
+
 };
  
 const updateNavigationButtons = () => {
@@ -92,9 +130,9 @@ const renderQuestion = () => {
     updateNavigationButtons();
 };
  
-const selectAnswer = (optionIndex) => {
-    studentAnswers[currentIndex] = optionIndex;
-    renderOptions(questions[currentIndex], optionIndex);
+const selectAnswer = (answer) => {
+    studentAnswers[currentIndex] = answer;
+    renderOptions(questions[currentIndex], studentAnswers[currentIndex]);
 };
  
 const goToPrevious = () => {
@@ -117,19 +155,28 @@ const getUnansweredQuestions = () =>
         .filter((questionNumber) => questionNumber !== null);
  
 const handleSubmit = () => {
+
     const unanswered = getUnansweredQuestions();
- 
+
     if (unanswered.length > 0) {
         alert(`Please answer all questions before submitting.\nUnanswered: ${unanswered.join(", ")}`);
         return;
     }
- 
+
     const studentId = getStudentId();
     const examId = getExamIdFromUrl();
+
     const resultId = db.createResult(studentId, examId, studentAnswers, questionIds);
- 
-    // Update this if your project's results page has a different filename.
-    // window.location.href = `student-result.html?resultId=${resultId}`;
+
+   
+    const result = db.getResult(resultId);
+
+    
+    if (result.passed) {
+       window.location.href = `exam-result-success.html?resultId=${resultId}`;
+    } else {
+        window.location.href = `exam-result-fail.html?resultId=${resultId}`;
+    }
 };
  
 const initExamPage = () => {

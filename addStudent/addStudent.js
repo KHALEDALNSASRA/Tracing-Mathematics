@@ -1,5 +1,5 @@
 import * as db from "../Database.js";
-import * as seed from "../seedData.js"
+
 
 
 const name = document.querySelectorAll(".profName")
@@ -15,8 +15,8 @@ name.forEach(element => {
 const addStudentForm = document.getElementById("addStudentForm")
 
 addStudentForm.addEventListener("submit",(e)=>{
-    e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     db.createStudent(data.studentName,data.nationalId,data.phoneNumber,data.studentEmail,data.studentPassword)
+    alert("Account created");
 })

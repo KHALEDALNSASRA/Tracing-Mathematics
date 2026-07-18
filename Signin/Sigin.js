@@ -8,8 +8,8 @@ const create = document.getElementById("createTeacher");
 
 console.log(create);
 
-create.addEventListener("submit", function (e) {
-    e.preventDefault();
+create.addEventListener("submit", function () {
+    
 
     alert("Submit Works");
 
