@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="./student-dashboard.css">
 <link rel="stylesheet" href="./exams-history.css">
-
 </head>
 <body>
 
@@ -16,10 +15,8 @@
 
 <div class="app-shell">
 
-  <!-- mobile scrim, closes sidebar on tap -->
   <label for="sidebar-toggle" class="sidebar-scrim" aria-hidden="true"></label>
 
-  <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar">
     <div class="sidebar-header">
       <img class="sidebar-logo-img" src="./assets/Examify.png" alt="Examify logo">
@@ -45,13 +42,13 @@
     </nav>
 
     <div class="sidebar-footer">
-      <a href="#" class="sidebar-item">
+      <a href="#" class="sidebar-item" id="logout-btn">
         <i class="fas fa-right-from-bracket"></i>
         <span class="sidebar-label">Sign out</span>
       </a>
     </div>
   </aside>
-  <!-- ================= MAIN ================= -->
+
   <div class="main">
     <header class="topbar">
       <label for="sidebar-toggle" class="topbar-burger" role="button" aria-label="Open menu">
@@ -65,138 +62,7 @@
       <section class="history-panel">
         <h2 class="history-panel-title">Exams history</h2>
 
-        <div class="history-grid">
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--success">Passed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Midterm</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">25/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <a href="review-answers.html">
-            <button class="btn btn--primary">Review my answers</button></a>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--success">Passed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Exercises</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">25/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--danger">Failed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Exercises</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">14/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--success">Passed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Exercises</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">25/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--danger">Failed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Exercises</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">14/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--success">Passed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Midterm</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">25/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--danger">Failed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Exercises</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">14/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-          <article class="history-card">
-            <div class="history-card-top">
-              <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
-              <span class="badge badge--success">Passed</span>
-            </div>
-            <div class="history-card-body">
-              <span class="history-card-title">Calculus II</span>
-              <span class="history-card-type">Exercises</span>
-            </div>
-            <div class="history-card-meta">
-              <span class="history-card-score">25/30</span>
-              <span>• 30 Q</span>
-            </div>
-            <button class="btn btn--primary">Review my answers</button>
-          </article>
-
-        </div>
+        <div class="history-grid" id="history-grid-container"></div>
       </section>
 
     </div>
@@ -204,5 +70,61 @@
 
 </div>
 
+<script type="module">
+    import * as db from "../Database.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const session = db.getCurrentSession();
+        if (!session) return;
+
+        const studentId = session.userId;
+        const studentResults = db.getResultsByStudent(studentId);
+        const currentStudent = db.getStudent(studentId); 
+
+        const container = document.getElementById("history-grid-container");
+        container.innerHTML = "";
+
+        if (studentResults.length === 0) {
+            container.innerHTML = "<p>You haven't taken any exams yet..</p>";
+            return;
+        }
+
+        for (let i = studentResults.length - 1; i >= 0; i--) {
+            const res = studentResults[i];
+            const examData = db.getExam(res.examId);
+            const isPassed = Number(res.earnedPoints) >= (Number(res.totalPoints) / 2);
+            
+            const statusClass = isPassed ? "badge--success" : "badge--danger";
+            const statusText = isPassed ? "Passed" : "Failed";
+            const realResultId = currentStudent.results[i];
+
+            const card = document.createElement("article");
+            card.className = "history-card";
+            card.innerHTML = `
+                <div class="history-card-top">
+                    <div class="history-card-icon"><i class="fa-regular fa-pen-to-square"></i></div>
+                    <span class="badge ${statusClass}">${statusText}</span>
+                </div>
+                <div class="history-card-body">
+                    <span class="history-card-title">${examData ? examData.title : "Exam"}</span>
+                    <span class="history-card-type">Exam</span>
+                </div>
+                <div class="history-card-meta">
+                    <span class="history-card-score">${res.earnedPoints}/${res.totalPoints}</span>
+                    <span>• ${examData && examData.questions ? examData.questions.length : 0} Q</span>
+                </div>
+                <button class="btn btn--primary review-btn" data-id="${realResultId}">Review my answers</button>
+            `;
+            container.appendChild(card);
+        }
+
+        container.querySelectorAll(".review-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const resultId = e.target.getAttribute("data-id");
+                window.location.href = `review-answers.html?resultId=${resultId}`;
+            });
+        });
+    });
+</script>
 </body>
 </html>

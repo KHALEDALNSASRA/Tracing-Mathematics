@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Examify — Review Calculus Exam</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Examify Review Exam</title>
+<link class="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="./review-answers.css">
 </head>
@@ -12,108 +12,147 @@
 
 <div class="review-page">
 
-  <!-- ================= HEADER ================= -->
   <header class="review-header">
-    <img class="review-header__logo-img" src="./assets/Examify.png" alt="Examify logo">
-    <span class="review-header__logo-text">Examify</span>
+    <img class="review-header-logo-img" src="./assets/Examify.png" alt="Examify logo">
+    <span class="review-header-logo-text">Examify</span>
   </header>
 
   <main class="review-content">
 
-    <h1 class="review-title">Review Calculus Exam</h1>
+    <h1 class="review-title" id="review-exam-title">Review Exam</h1>
 
-    <!-- ================= QUESTION 1 ================= -->
-    <section class="question-card">
-      <h2 class="question-card__number">Question 1</h2>
-      <p class="question-card__prompt">Solve for x in the equation: 2x + 5 = 15. What is the value of x?</p>
+    <div id="questions-review-container"></div>
 
-      <div class="question-card__working">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</div>
-
-      <ul class="option-list">
-        <li class="option">
-          <span class="option__badge">A</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option option--correct">
-          <span class="option__badge option__badge--correct">B</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option">
-          <span class="option__badge">C</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option">
-          <span class="option__badge">D</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ================= QUESTION 2 ================= -->
-    <section class="question-card">
-      <h2 class="question-card__number">Question 2</h2>
-      <p class="question-card__prompt">Solve for x in the equation: 2x + 5 = 15. What is the value of x?</p>
-
-      <div class="question-card__working">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</div>
-
-      <ul class="option-list">
-        <li class="option">
-          <span class="option__badge">A</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option option--incorrect">
-          <span class="option__badge option__badge--incorrect">B</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option option--correct">
-          <span class="option__badge option__badge--correct">C</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option">
-          <span class="option__badge">D</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ================= QUESTION 3 ================= -->
-    <section class="question-card">
-      <h2 class="question-card__number">Question 3</h2>
-      <p class="question-card__prompt">Solve for x in the equation: 2x + 5 = 15. What is the value of x?</p>
-
-      <div class="question-card__working">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</div>
-
-      <ul class="option-list">
-        <li class="option">
-          <span class="option__badge">A</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option option--incorrect">
-          <span class="option__badge option__badge--incorrect">B</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option option--correct">
-          <span class="option__badge option__badge--correct">C</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-        <li class="option">
-          <span class="option__badge">D</span>
-          <span class="option__text">2x + 5 = 15 &nbsp;&rarr;&nbsp; 2x = 15 - 5</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ================= SCORE BAR ================= -->
     <div class="score-bar">
-      <span class="score-bar__label">Your score :</span>
-      <span class="score-bar__value">25/30</span>
+      <span class="score-bar-label">Your score :</span>
+      <span class="score-bar-value" id="review-score-value">0/0</span>
     </div>
 
-    <a href="student-dashboard.html" class="btn btn--primary btn--back">Back to dashboard</a>
+    <a href="student-dashboard.html" class="btn btn-primary btn-back">Back to dashboard</a>
 
   </main>
 
 </div>
 
+<script type="module">
+    import * as db from "../Database.js";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const session = db.getCurrentSession();
+        
+
+        const studentId = session.userId;
+        const urlParams = new URLSearchParams(window.location.search);
+        const resultId = Number(urlParams.get("resultId"));
+
+        const result = db.getResult(resultId);
+
+        const exam = db.getExam(result.examId);
+
+        document.getElementById("review-exam-title").textContent = `Review ${exam.title}`;
+        document.getElementById("review-score-value").textContent = `${result.earnedPoints}/${result.totalPoints}`;
+
+        const container = document.getElementById("questions-review-container");
+        container.innerHTML = "";
+
+        exam.questions.forEach((qid, index) => {
+            const question = db.getQuestion(qid);
+            if (!question) return;
+
+            const savedAnswerData = result.answers[index];
+            
+            let studentAns = -1;
+            if (savedAnswerData && savedAnswerData.hasOwnProperty("studentAns")) {
+                studentAns = savedAnswerData.studentAns;
+            }
+
+            const card = document.createElement("section");
+            card.className = "question-card";
+
+            let optionsHtml = "";
+
+            if (question.type === "MCQ" || question.type === "TrueFalse") {
+                Object.entries(question.option).forEach(([optKey, optText]) => {
+                    const optNum = Number(optKey);
+                    const isCorrectAnswer = optNum === Number(question.correctAns);
+                    
+                    let isStudentChoice = false;
+                    if (Array.isArray(studentAns)) {
+                        isStudentChoice = studentAns.includes(optNum);
+                    } else {
+                        isStudentChoice = optNum === Number(studentAns);
+                    }
+
+                    let statusClass = "";
+                    let badgeClass = "";
+
+                    if (isCorrectAnswer) {
+                        statusClass = "option-correct";
+                        badgeClass = "option-badge-correct";
+                    } else if (isStudentChoice && !isCorrectAnswer) {
+                        statusClass = "option-incorrect";
+                        badgeClass = "option-badge-incorrect";
+                    }
+
+                    optionsHtml += `
+                        <li class="option ${statusClass}">
+                            <span class="option-badge ${badgeClass}">${String.fromCharCode(65 + optNum)}</span>
+                            <span class="option-text">${optText} ${isStudentChoice ? "<strong>(Your Answer)</strong>" : ""}</span>
+                        </li>
+                    `;
+                });
+            } else if (question.type === "MultipleAnswers") {
+                Object.entries(question.option).forEach(([optKey, optText]) => {
+                    const optNum = Number(optKey);
+                    
+                    const isCorrectAnswer = Array.isArray(question.correctAns) 
+                        ? question.correctAns.includes(optNum) 
+                        : optNum === Number(question.correctAns);
+
+                    let isStudentChoice = false;
+                    if (Array.isArray(studentAns)) {
+                        isStudentChoice = studentAns.includes(optNum);
+                    } else {
+                        isStudentChoice = optNum === Number(studentAns);
+                    }
+
+                    let statusClass = "";
+                    let badgeClass = "";
+
+                    if (isCorrectAnswer) {
+                        statusClass = "option-correct";
+                        badgeClass = "option-badge-correct";
+                    } else if (isStudentChoice && !isCorrectAnswer) {
+                        statusClass = "option-incorrect";
+                        badgeClass = "option-badge-incorrect";
+                    }
+
+                    optionsHtml += `
+                        <li class="option ${statusClass}">
+                            <span class="option-badge ${badgeClass}">${String.fromCharCode(65 + optNum)}</span>
+                            <span class="option-text">${optText} ${isStudentChoice ? "<strong>(Your Answer)</strong>" : ""}</span>
+                        </li>
+                    `;
+                });
+            } else if (question.type === "ShortAnswer") {
+                const isCorrect = savedAnswerData ? savedAnswerData.isCorrect : false;
+                optionsHtml += `
+                    <div style="margin-top: 12px; padding: 14px 20px; border-radius: var(--r-md); background: ${isCorrect ? 'var(--success-tint)' : 'var(--danger-tint)'}; border: 1px solid ${isCorrect ? 'var(--success)' : 'var(--danger)'};">
+                        <p style="font-size: 14.5px; color: #475569;">Your Answer: <span style="font-weight: 700;">${studentAns === -1 ? "No Answer" : studentAns}</span></p>
+                        <p style="font-size: 14.5px; margin-top: 6px; color: #475569;">Correct Answer: <span style="font-weight: 700; color: var(--text);">${question.correctAns}</span></p>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <h2 class="question-card-number">Question ${index + 1}</h2>
+                <p class="question-card-prompt">${question.text}</p>
+                ${question.type !== "ShortAnswer" ? `<ul class="option-list">${optionsHtml}</ul>` : optionsHtml}
+            `;
+
+            container.appendChild(card);
+        });
+    });
+</script>
 </body>
 </html>
