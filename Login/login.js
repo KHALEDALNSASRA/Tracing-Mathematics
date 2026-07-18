@@ -1,7 +1,5 @@
 import * as db from "../Database.js";
-import * as sead from "../seedData.js"
- 
-sead.seedData();
+
 
 
 

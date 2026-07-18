@@ -23,7 +23,7 @@ export function seedData() {
 
     const teacherId = createTeacher(
         "Mr. Ahmad Khalil",
-        "admin",
+        "admin@gmail.com",
         "admin123"
     );
 
