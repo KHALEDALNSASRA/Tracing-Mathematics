@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student</title>
+    <link href="addstudent.css" rel="stylesheet">
+    <script type="module"  src="addStudent.js" defer></script>
+
+</head>
+
+<body>
+
+<div class="dashboard-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo-wrap">
+                <img
+                    class="brand-logo"
+                    src="../pic/logo.png"
+                    alt="Examify"
+                >
+            </div>
+        </div>
+
+        <nav class="side-nav">
+
+            <a class="nav-link" href="../teacher_dashbors/teacher_dashbors.html">
+                <svg
+                    class="nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                >
+                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+
+                <span>Dashboard</span>
+            </a>
+
+            <a class="nav-link" href="../examBuilder/examBuilder.html">
+                <svg
+                    class="nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M4 20h16"></path>
+                    <path d="M6 16l8-8 4 4-8 8H6v-4z"></path>
+                </svg>
+
+                <span>Exam Builder</span>
+            </a>
+
+            <a class="nav-link active" href="../addStudent/addStudent.html">
+                <svg
+                    class="nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                >
+                    <circle cx="9" cy="8" r="3"></circle>
+                    <path d="M3 19c.5-4 2.5-6 6-6s5.5 2 6 6"></path>
+                    <path d="M17 8v6"></path>
+                    <path d="M14 11h6"></path>
+                </svg>
+
+                <span>Add Student</span>
+            </a>
+
+            <a class="nav-link" href="../Student_results/Student_results.html">
+                <svg
+                    class="nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M4 19h16"></path>
+                    <path d="M6 17V9"></path>
+                    <path d="M12 17V4"></path>
+                    <path d="M18 17v-6"></path>
+                </svg>
+
+                <span>Students Results</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a class="nav-link" href="../teacheer_profile/teacher_profile.html">
+                <svg
+                    class="nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                >
+                    <circle cx="12" cy="8" r="3"></circle>
+                    <path d="M5 20c.7-4 3-6 7-6s6.3 2 7 6"></path>
+                </svg>
+
+                <span class="profName"><span class="profName"></span></span>
+            </a>
+
+            <a class="nav-link" href="#">
+                <svg
+                    class="nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                >
+                    <path d="M10 17l5-5-5-5"></path>
+                    <path d="M15 12H3"></path>
+                    <path d="M14 4h6v16h-6"></path>
+                </svg>
+
+                <span>Sign out</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+
+            <div class="topbar-title">Students</div>
+
+            <div class="topbar-actions">
+                <button class="btn" type="button">
+                    Sign Out
+                </button>
+
+                <button class="btn btn-primary" type="button">
+                    New Exam
+                </button>
+            </div>
+
+        </header>
+
+        <section class="content add-student-content">
+
+            <h1 class="add-student-title">
+                Add student
+            </h1>
+
+            <form class="add-student-form" id="addStudentForm">
+
+                <section class="student-form-card">
+
+                    <h2 class="student-form-title">
+                        Student Details
+                    </h2>
+
+                    <div class="student-form-grid">
+
+                        <div class="student-form-group">
+                            <label for="studentName">Name</label>
+
+                            <input
+                                class="student-form-input"
+                                id="studentName"
+                                name="studentName"
+                                type="text"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <div class="student-form-group">
+                            <label for="studentEmail">Email</label>
+
+                            <input
+                                class="student-form-input"
+                                id="studentEmail"
+                                name="studentEmail"
+                                type="email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                        <div class="student-form-group">
+                            <label for="studentPassword">Password</label>
+
+                            <input
+                                class="student-form-input"
+                                id="studentPassword"
+                                name="studentPassword"
+                                type="password"
+                                autocomplete="new-password"
+                                required
+                            >
+                        </div>
+
+                        <div class="student-form-group">
+                            <label for="confirmPassword">
+                                Confirm Password
+                            </label>
+
+                            <input
+                                class="student-form-input"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                type="password"
+                                autocomplete="new-password"
+                                required
+                            >
+                        </div>
+
+                        <div class="student-form-group">
+                            <label for="nationalId">National ID</label>
+
+                            <input
+                                class="student-form-input"
+                                id="nationalId"
+                                name="nationalId"
+                                type="text"
+                                inputmode="numeric"
+                                required
+                            >
+                        </div>
+
+                        <div class="student-form-group">
+                            <label for="phoneNumber">Phone Number</label>
+
+                            <input
+                                class="student-form-input"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                type="tel"
+                                autocomplete="tel"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <button class="add-student-button" type="submit">
+                    <span>Add Student</span>
+
+                    <svg
+                        class="add-student-button-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M12 5v14"></path>
+                        <path d="M5 12h14"></path>
+                    </svg>
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module" src="./addStudent.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("../style/style.css");
+@import url("../teacher_dashbors/teacher_dashbors.css");
+.add-student-content {
+    padding-top: 62px;
+}
+
+.add-student-title {
+    margin: 0 0 66px;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.add-student-form {
+    width: 100%;
+}
+
+.student-form-card {
+    width: min(100%, 800px);
+    margin: 0 auto;
+    padding: 20px 26px 50px;
+    border: 2px solid var(--border);
+    border-radius: var(--r-lg);
+    background: transparent;
+}
+
+.student-form-title {
+    margin: 0 0 44px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.student-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 52px;
+    row-gap: 42px;
+}
+
+.student-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.student-form-group label {
+    color: #8b8f98;
+    font-size: 13px;
+}
+
+.student-form-input {
+    width: 100%;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    outline: none;
+    background: var(--card);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 13px;
+    transition:
+        border-color var(--fast) var(--ease),
+        box-shadow var(--fast) var(--ease);
+}
+
+.student-form-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-tint);
+}
+
+.add-student-button {
+    width: min(100%, 480px);
+    min-height: 42px;
+    margin: 128px auto 0;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: none;
+    border-radius: 6px;
+    background: var(--grad-primary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform var(--fast) var(--ease),
+        box-shadow var(--fast) var(--ease);
+}
+
+.add-student-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.add-student-button:active {
+    transform: translateY(0);
+}
+
+.add-student-button-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 14px;
+}
+
+@media (max-width: 900px) {
+    .add-student-title {
+        margin-bottom: 45px;
+        font-size: 40px;
+    }
+
+    .student-form-card {
+        padding: 20px 22px 40px;
+    }
+
+    .student-form-grid {
+        column-gap: 28px;
+    }
+
+    .add-student-button {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 720px) {
+    .add-student-content {
+        padding-top: 32px;
+    }
+
+    .add-student-title {
+        margin-bottom: 30px;
+        font-size: 32px;
+    }
+
+    .student-form-card {
+        padding: 20px;
+        border-radius: var(--r-md);
+    }
+
+    .student-form-title {
+        margin-bottom: 30px;
+        font-size: 21px;
+    }
+
+    .student-form-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .add-student-button {
+        width: 100%;
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 420px) {
+    .student-form-card {
+        padding: 18px 14px;
+    }
+
+    .add-student-title {
+        font-size: 28px;
+    }
+}
