@@ -127,7 +127,7 @@
         const currentStudent = db.getStudent(studentId); 
         
         document.getElementById("student-name").textContent = currentStudent.fullName;
-        document.getElementById("stat-avg").textContent = `${currentStudent.avgGrade || 0}%`;
+        document.getElementById("stat-avg").textContent = `${Math.round(currentStudent.avgGrade )|| 0}%`;
         
 
         const studentResults = db.getResultsByStudent(studentId); 
