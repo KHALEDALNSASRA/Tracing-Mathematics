@@ -170,6 +170,11 @@ const handleSubmit = () => {
 
    
     const result = db.getResult(resultId);
+const exams = JSON.parse(localStorage.getItem("Exams"));
+exams[examId].status = "Inactive";
+localStorage.setItem("Exams", JSON.stringify(exams));
+
+
 
     
     if (result.passed) {

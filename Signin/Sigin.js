@@ -3,7 +3,6 @@ import * as db from "../Database.js";
 
 
 
-
 const create = document.getElementById("createTeacher");
 
 console.log(create);
@@ -18,6 +17,7 @@ create.addEventListener("submit", function () {
     const password = document.getElementById("password").value;
 
     db.createTeacher(fullName, email, password);
+    window.location.href = "../Login/login.html"
 
    
 });

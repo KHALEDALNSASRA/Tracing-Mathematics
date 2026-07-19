@@ -378,6 +378,7 @@ Results: {
 
 */
 export function createResult(studentId, examId, ans, qId) {
+    console.log("createResult is running");
     const data = JSON.parse(localStorage.getItem("Results"));
     const newKey = getNextKey(data);
     const exam = getExam(examId);
@@ -495,7 +496,13 @@ export function logout() {
 
 export function addQuestionToExam(examId, questionId) {
     const data = JSON.parse(localStorage.getItem("Exams"));
+
     data[examId].questions.push(questionId);
+
+    const question = getQuestion(questionId);
+
+    data[examId].totalPoints += Number(question.points);
+
     localStorage.setItem("Exams", JSON.stringify(data));
 }
 
